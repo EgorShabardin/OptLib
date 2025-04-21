@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.14.0)
+project(examples LANGUAGES C CXX)
+macro(add_example name)
+    add_executable(${name} ${name}.cpp)
+    target_include_directories(${name} PUBLIC "${PROJECT_SOURCE_DIR}/..")
+    target_include_directories(${name} PRIVATE ${PROJECT_BINARY_DIR})
+endmacro()
+add_example(points_ex)

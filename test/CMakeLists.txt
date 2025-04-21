@@ -1,0 +1,7 @@
+set(project_name Tests)
+project(Tests)
+include(${CMAKE_SOURCE_DIR}/cmake/Catch2.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/AddCatch2.cmake)
+include(CTest)
+include(Catch)
+add_catch2_test(pointval_test)

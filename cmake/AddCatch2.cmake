@@ -1,0 +1,8 @@
+macro(add_catch2_test name)
+    set(TEST_EXECUTABLE ${name})
+    set(TEST_NAME ${name})
+    add_executable(${TEST_NAME} ${TEST_EXECUTABLE}.cpp)
+    target_include_directories(${TEST_EXECUTABLE} PRIVATE "{CMAKE_CURRENT_SOURSE_DIR}/../")
+    target_link_libraries(${TEST_NAME} PRIVATE Catch2::Catch2WithMain)
+    add_test(NAME ${TEST_NAME} COMMAND ${TEST_EXECUTABLE})
+endmacro()
