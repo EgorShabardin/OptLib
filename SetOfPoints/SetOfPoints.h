@@ -9,10 +9,10 @@ namespace OptLib
 	using RawSetOfPoints = std::array<point, count>;
 
 	template<size_t count, typename point>
-	struct SetOfPoints : private RawSetOfPoints
+	struct SetOfPoints : private RawSetOfPoints<count, point>
 	{
 		public:
-			using RawSetOfPoints<count, point>::<count, point>;
+			using RawSetOfPoints<count, point>::RawSetOfPoints;
 			using RawSetOfPoints<count, point>::operator[];
 			using RawSetOfPoints<count, point>::size;
 			using RawSetOfPoints<count, point>::begin;

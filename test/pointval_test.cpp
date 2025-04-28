@@ -1,5 +1,6 @@
 #include "../SetOfPoints/PointVals/PointVal.h"
 #include "../SetOfPoints/PointVals/Point/PointOperatorsSerial.h"
+#include "../SetOfPoints/Plane.h"
 #include <catch2/catch_test_macros.hpp>
 TEST_CASE("PointOperators")
 {
@@ -22,5 +23,8 @@ TEST_CASE("PointOperators")
     for(size_t i{0ull}; i < 3ull; ++i)
         CHECK(firstPoint[i] - secondPoint[i] == minus[i]);
 
-    
+    auto pl = OptLib::Plane<3>{firstPoint};
+    double dotprod = pl(secondPoint);
+
+    CHECK(dotprod == 33.82);
 }
